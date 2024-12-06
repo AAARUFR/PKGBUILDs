@@ -1,0 +1,19 @@
+# Maintainer: Ariadna Ardere arxofari@proton.me
+pkgname=calc-bin
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Simple blazingly fast command-line calculator utility"
+arch=('x86_64')
+url="https://github.com/AAARUFR/calc"
+license=('GPL3')
+source=("calc-x86_64-unknown-linux-gnu::https://github.com/AAARUFR/calc/releases/download/release/calc-x86_64-unknown-linux-gnu")
+sha256sums=('SKIP')
+options=('!debug')
+
+package() {
+    cd "$srcdir"
+
+    install -d "$pkgdir/usr/bin"
+
+    install -m755 calc-x86_64-unknown-linux-gnu "$pkgdir/usr/bin/calc"
+}
